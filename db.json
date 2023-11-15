@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Button 1",
+      "price": 25,
+      "image": "assets/images/but1.jpg",
+      "configure": {
+        "diameter": 3,
+        "color": "black",
+        "height": 1,
+        "code": 123321
+      }
+    },
+    {
+      "id": 2,
+      "title": "e3e3e3",
+      "price": 2,
+      "image": "assets/images/but3.jpg",
+      "configure": {
+        "diameter": "",
+        "color": "",
+        "height": "",
+        "code": ""
+      }
+    },
+    {
+      "id": 3,
+      "title": "Button 3",
+      "price": 15,
+      "image": "assets/images/but3.jpg",
+      "configure": {
+        "diameter": 2,
+        "color": "blue",
+        "height": 1,
+        "code": 123521
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<div class="container">
+  <mat-card class="mat-card">
+    <mat-card-header>
+      <mat-card-title>{{product.title}}</mat-card-title>
+    </mat-card-header>
+    <img class="product-img" mat-card-image src="{{product.image}}" alt="">
+    <mat-card-content>
+      <p>Цена: {{product.price}} ₽</p>
+      <p>Диаметр: {{product.configure.diameter}} см</p>
+      <p>Цвет: {{product.configure.color}}</p>
+      <p>Высота: {{product.configure.height}} см</p>
+      <p>Артикул: {{product.configure.code}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" style="margin-right: 10px">В корзину</button>
+      <button mat-flat-button color="primary" [routerLink]="['/product',product.id]">Подробнее</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

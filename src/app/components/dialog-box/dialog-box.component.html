@@ -1,0 +1,43 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Price</mat-label>
+    <input matInput formControlName="price">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Diameter</mat-label>
+    <input matInput formControlName="diameter">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Color</mat-label>
+    <input matInput formControlName="color">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Height</mat-label>
+    <input matInput formControlName="height">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Code</mat-label>
+    <input matInput formControlName="code">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Image</mat-label>
+    <input matInput formControlName="image">
+    <input type="file" id="myFileInput">
+  </mat-form-field>
+
+
+  <button class="toolbar button" mat-flat-button type="submit">
+    {{isNew ? 'Добавить товар' : 'Обновить'}}</button>
+  <button class="toolbar button" mat-flat-button (click)="onNoClick()" type="button">Отмена</button>
+  <button class="toolbar button" mat-flat-button (click)="showMe()" type="button">Клик</button>
+</form>
