@@ -19,6 +19,8 @@ export class DialogBoxComponent implements OnInit {
     id: new FormControl(this.data?.id ?? null),
     title: new FormControl(this.data?.title ?? ''),
     price: new FormControl(this.data?.price ?? ''),
+    image: new FormControl(this.data?.image ?? ''),
+    imageName: new FormControl(this.data?.image ?? ''),
     configId: new FormControl(this.data?.configure.id ?? null),
     diameter: new FormControl(this.data?.configure.diameter ?? ''),
     color: new FormControl(this.data?.configure.color ?? ''),
@@ -42,13 +44,6 @@ export class DialogBoxComponent implements OnInit {
     console.log("kjlhlj", this.fileInput);
 
   }
-
-  showMe() {
-
-
-  }
-
-
 
   onNoClick(): void {
     this.dialogRef.close(null);
@@ -74,13 +69,28 @@ export class DialogBoxComponent implements OnInit {
             diameter: this.myForm.value.diameter,
             color: this.myForm.value.color,
             height: this.myForm.value.height,
-            code: this.myForm.value.code,
-          }
+            code: this.myForm.value.code}
         };
 
         this.dialogRef.close(this.data);
       }
       reader.readAsDataURL(file);
+    } else {
+      this.data = {
+        id: this.myForm.value.id,
+        title: this.myForm.value.title,
+        price: this.myForm.value.price,
+        image: this.myForm.value.image,
+        configure: {
+          id: this.myForm.value.configId,
+          diameter: this.myForm.value.diameter,
+          color: this.myForm.value.color,
+          height: this.myForm.value.height,
+          code: this.myForm.value.code,
+        }
+      };
+
+      this.dialogRef.close(this.data);
     }
 
 

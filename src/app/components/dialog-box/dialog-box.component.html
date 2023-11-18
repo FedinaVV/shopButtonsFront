@@ -31,13 +31,15 @@
 
   <mat-form-field class="example-full-width">
     <mat-label>Image</mat-label>
-    <input matInput formControlName="image">
-    <input type="file" id="myFileInput">
+    <input matInput formControlName="imageName">
+    <input type="file" id="myFileInput" style="display: none">
+    <label for="myFileInput" class="input__lable">
+    <div>{{(myForm.value.image == null || myForm.value.image === '') ? 'Добавить изображение' : 'Заменить изображение'}}</div>
+    </label>
   </mat-form-field>
 
 
   <button class="toolbar button" mat-flat-button type="submit">
     {{isNew ? 'Добавить товар' : 'Обновить'}}</button>
   <button class="toolbar button" mat-flat-button (click)="onNoClick()" type="button">Отмена</button>
-  <button class="toolbar button" mat-flat-button (click)="showMe()" type="button">Клик</button>
 </form>
