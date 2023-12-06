@@ -1,1 +1,16 @@
-<p>basket works!</p>
+<p>Basket</p>
+
+<mat-card class="mat-card" *ngFor="let product of products">
+  <mat-card-header>
+    <mat-card-title>{{product.title}}</mat-card-title>
+  </mat-card-header>
+  <img class="product-img" mat-card-image src="{{product.image}}" alt="">
+  <mat-card-content>
+    <p>Цена: {{product.price}} ₽</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="deleteItemFromBasket(product.id)" type="button" style="margin-right: 10px">Удалить</button>
+  </mat-card-actions>
+
+</mat-card>

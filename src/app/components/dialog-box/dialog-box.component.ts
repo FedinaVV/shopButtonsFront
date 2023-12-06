@@ -92,8 +92,6 @@ export class DialogBoxComponent implements OnInit {
 
       this.dialogRef.close(this.data);
     }
-
-
   }
 
 

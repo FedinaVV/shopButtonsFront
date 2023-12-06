@@ -7,8 +7,8 @@ import {BProduct} from '../models/products';
 })
 export class ProductsService {
 
-  //url: string = 'http://localhost:3000/products';
   url: string = "http://localhost:8080/api/buttons";
+  urlBasket: string = "http://localhost:8080/api/basket";
   constructor(private http: HttpClient) { }
 
 
@@ -26,12 +26,23 @@ export class ProductsService {
   }
 
   deleteProduct(id: number){
-    //return this.http.delete<any>(`${this.url}/${id}`)
     return this.http.delete(this.url, {params:{"id": id}});
   }
 
   updateProduct(product: BProduct) {
     //return this.http.put<BProduct>(`${this.url}/${product.id}`, product);
     return this.http.put<BProduct>(this.url, product);
+  }
+
+  postProductBasket(product: BProduct){
+    return this.http.post(this.urlBasket, product);
+  }
+
+  getProductsFromBasket() {
+  return this.http.get<BProduct[]>(this.urlBasket);
+  }
+
+  deleteProductFromBasket(id: number) {
+    return this.http.delete(this.urlBasket, {params:{"id": id}});
   }
 }

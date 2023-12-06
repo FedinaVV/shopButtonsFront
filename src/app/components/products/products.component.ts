@@ -27,6 +27,10 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  addToBasket(product: BProduct){
+    this.ProductsService.postProductBasket(product).subscribe((data) => console.log(data));
+  }
+
   deleteItem(id: number) {
     this.ProductsService.deleteProduct(id).subscribe(() => this.products.find((item) => {
       if (id === item.id) {
