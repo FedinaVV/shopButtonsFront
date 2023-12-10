@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {BProduct} from "../../models/products";
 import {ProductsService} from "../../services/products.service";
+import {Basket} from "../../models/basket";
 
 @Component({
   selector: 'app-basket',
@@ -9,23 +10,28 @@ import {ProductsService} from "../../services/products.service";
 })
 export class BasketComponent {
 
-  products: BProduct[] = [];
+  baskets: Basket[] = [];
 
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
     this.productsService.getProductsFromBasket().subscribe({
-      next: buttonsWithConfig => this.products = buttonsWithConfig,
+      next: buttonsWithConfig => {
+        this.baskets = buttonsWithConfig;
+        console.log(this.baskets)
+      },
       error: err => alert('Не удалось получить данные с корзины!')
     })
   }
 
-  deleteItemFromBasket(id: number) {
-    this.productsService.deleteProductFromBasket(id).subscribe(() => this.products.find((item) => {
-      if (id === item.id) {
-        let idx = this.products.findIndex((data) => data.id === id);
-        this.products.splice(idx, 1);
+  deleteItemFromBasket(basketId: number) {
+    this.productsService.deleteProductFromBasket(basketId).subscribe(
+      () => this.baskets.find((item) => {
+      if (basketId === item.basketId) {
+        let idx = this.baskets.findIndex((data) => data.basketId === basketId);
+        this.baskets.splice(idx, 1);
       }
-    }));
+    })
+    );
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BProduct} from '../models/products';
+import {Basket} from "../models/basket";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,7 @@ export class ProductsService {
   url: string = "http://localhost:8080/api/buttons";
   urlBasket: string = "http://localhost:8080/api/basket";
   constructor(private http: HttpClient) { }
-
-
+  
 
   getProducts(){
    return this.http.get<BProduct[]>(this.url);
@@ -39,7 +39,7 @@ export class ProductsService {
   }
 
   getProductsFromBasket() {
-  return this.http.get<BProduct[]>(this.urlBasket);
+  return this.http.get<Basket[]>(this.urlBasket);
   }
 
   deleteProductFromBasket(id: number) {
